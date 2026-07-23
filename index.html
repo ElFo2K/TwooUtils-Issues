@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08080d">
+  <meta name="description" content="Centro oficial de reportes de TwooUtils. Ayúdanos a encontrar y solucionar errores del mod.">
+  <meta property="og:title" content="¿Encontraste un bug en TwooUtils?">
+  <meta property="og:description" content="Cuéntanos qué ocurrió y ayúdanos a mejorar el mod.">
+  <meta property="og:type" content="website">
+  <title>Reportar un error · TwooUtils</title>
+  <link rel="stylesheet" href="app/globals.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <nav class="nav shell" aria-label="Navegación principal">
+      <a class="brand" href="#top" aria-label="TwooUtils, volver arriba">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span><strong>Twoo</strong>Utils</span>
+      </a>
+      <a class="nav-link tracker-issues" target="_blank" rel="noreferrer">
+        Ver reportes
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+      </a>
+    </nav>
+
+    <header class="hero shell" id="top">
+      <div class="eyebrow"><span></span> CENTRO OFICIAL DE ERRORES</div>
+      <h1>¿Encontraste algo <span>fuera de lugar?</span></h1>
+      <p class="hero-copy">Cuéntanos qué ocurrió. Un buen reporte nos ayuda a localizar el problema más rápido y a hacer que TwooUtils sea mejor para todos.</p>
+      <div class="hero-meta">
+        <div><span class="meta-icon">⌁</span><span><strong>3–5 min</strong><small>para completar</small></span></div>
+        <div><span class="meta-icon">✓</span><span><strong>Seguimiento</strong><small>desde GitHub</small></span></div>
+        <div><span class="meta-icon">◈</span><span><strong>Código privado</strong><small>tracker independiente</small></span></div>
+      </div>
+    </header>
+
+    <div class="content shell">
+      <form class="report-card" id="bug-form">
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Progreso del reporte</span><strong id="progress-value">0%</strong></div>
+          <div class="progress-track"><span id="progress-bar" style="width:0%"></span></div>
+        </div>
+
+        <section>
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <div><h2>¿Qué ha ocurrido?</h2><p>Empecemos por identificar el tipo de problema.</p></div>
+          </div>
+          <div class="type-grid">
+            <label class="type-card selected">
+              <input type="radio" name="reportType" value="Bug" checked>
+              <span class="type-icon">✦</span><strong>Bug</strong><small>Algo no funciona como debería</small><span class="radio-dot"></span>
+            </label>
+            <label class="type-card">
+              <input type="radio" name="reportType" value="Crash">
+              <span class="type-icon">⚠</span><strong>Crash</strong><small>Minecraft se cierra o deja de responder</small><span class="radio-dot"></span>
+            </label>
+            <label class="type-card">
+              <input type="radio" name="reportType" value="Compatibilidad">
+              <span class="type-icon">◇</span><strong>Compatibilidad</strong><small>Conflicto con otro mod</small><span class="radio-dot"></span>
+            </label>
+          </div>
+          <label class="field">
+            <span class="field-label">Título breve <span class="required">*</span></span>
+            <span class="field-hint">Resume el problema en una sola frase.</span>
+            <input name="title" maxlength="110" placeholder="Ej.: El menú de cinemáticas no guarda los cambios" required>
+            <span class="char-count" id="title-count">0/110</span>
+          </label>
+        </section>
+
+        <section>
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <div><h2>Tu entorno</h2><p>Las versiones exactas son clave para poder reproducirlo.</p></div>
+          </div>
+          <div class="two-columns">
+            <label class="field"><span class="field-label">Versión de Minecraft <span class="required">*</span></span><input name="minecraftVersion" value="1.20.1" placeholder="1.20.1" required></label>
+            <label class="field"><span class="field-label">Versión de TwooUtils <span class="required">*</span></span><span class="field-hint">Aparece en el menú Mods.</span><input name="modVersion" placeholder="Ej.: 1.0.3" required></label>
+            <label class="field"><span class="field-label">Mod loader <span class="required">*</span></span><select name="loader"><option>Forge</option><option>Fabric</option><option>NeoForge</option><option>Otro</option></select></label>
+            <label class="field"><span class="field-label">Versión del loader</span><span class="field-hint">Opcional, pero muy útil.</span><input name="loaderVersion" placeholder="Ej.: 47.4.0"></label>
+          </div>
+          <label class="field">
+            <span class="field-label">Gravedad del problema</span>
+            <select name="severity">
+              <option value="Baja">Baja — Detalle visual o molestia menor</option>
+              <option value="Normal" selected>Normal — Una función falla, pero se puede seguir jugando</option>
+              <option value="Alta">Alta — Bloquea una función importante</option>
+              <option value="Crítica">Crítica — Crashes, pérdida de datos o servidor inutilizable</option>
+            </select>
+          </label>
+        </section>
+
+        <section>
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <div><h2>Ayúdanos a reproducirlo</h2><p>Cuantos más detalles, menos tiempo tardaremos en encontrar la causa.</p></div>
+          </div>
+          <label class="field"><span class="field-label">Descripción <span class="required">*</span></span><span class="field-hint">Explica cuándo apareció y qué estabas haciendo.</span><textarea name="description" rows="5" placeholder="El problema aparece cuando..." required></textarea></label>
+          <label class="field"><span class="field-label">Pasos para reproducirlo <span class="required">*</span></span><span class="field-hint">Escribe una acción por línea.</span><textarea name="steps" rows="6" placeholder="1. Entrar a un mundo&#10;2. Abrir el menú de TwooUtils&#10;3. Pulsar en..." required></textarea></label>
+          <div class="two-columns">
+            <label class="field"><span class="field-label">¿Qué esperabas que pasara?</span><textarea name="expected" rows="4" placeholder="Esperaba que..."></textarea></label>
+            <label class="field"><span class="field-label">¿Qué pasó realmente? <span class="required">*</span></span><textarea name="actual" rows="4" placeholder="En su lugar ocurrió..." required></textarea></label>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <div><h2>Información adicional</h2><p>Opcional, aunque puede marcar la diferencia.</p></div>
+          </div>
+          <label class="field"><span class="field-label">Otros mods relevantes</span><span class="field-hint">Especialmente si sospechas de una incompatibilidad.</span><textarea name="extraMods" rows="3" placeholder="Nombre y versión de los mods..."></textarea></label>
+          <label class="field"><span class="field-label">Logs, capturas o vídeo</span><span class="field-hint">Pega un enlace de mclo.gs, Pastebin, YouTube, Imgur o similar.</span><textarea name="evidence" rows="3" placeholder="https://mclo.gs/..."></textarea></label>
+          <label class="field"><span class="field-label">Discord o contacto</span><span class="field-hint">Opcional; solo si aceptas que te contactemos sobre el reporte.</span><input name="contact" placeholder="Ej.: usuario de Discord"></label>
+
+          <div class="privacy-note"><span>!</span><p><strong>Protege tus datos.</strong> Revisa los logs antes de compartirlos y elimina tokens, correos, direcciones IP o rutas que contengan tu nombre real.</p></div>
+
+          <div class="checks">
+            <label><input type="checkbox" name="checkedDuplicates"><span class="custom-check">✓</span><span>He revisado los <a class="tracker-issues" target="_blank" rel="noreferrer">reportes existentes</a> y no he encontrado uno igual. <b>*</b></span></label>
+            <label><input type="checkbox" name="checkedPrivacy"><span class="custom-check">✓</span><span>He comprobado que el texto no contiene información privada. <b>*</b></span></label>
+          </div>
+        </section>
+
+        <div class="submit-area">
+          <div><strong>Todo listo para enviar</strong><p>Se abrirá GitHub con el reporte rellenado. Necesitarás iniciar sesión para publicarlo.</p></div>
+          <div class="submit-actions">
+            <button class="copy-button" id="copy-report" type="button">Copiar reporte</button>
+            <button class="submit-button" id="submit-report" type="submit" disabled>Crear reporte <span>↗</span></button>
+          </div>
+        </div>
+      </form>
+
+      <aside class="sidebar">
+        <div class="side-card sticky-card">
+          <div class="side-card-icon purple">?</div>
+          <h3>Un buen reporte incluye</h3>
+          <ul><li><span>1</span>Versiones exactas</li><li><span>2</span>Pasos claros y ordenados</li><li><span>3</span>Logs completos, si existen</li><li><span>4</span>Capturas o vídeo del fallo</li></ul>
+        </div>
+        <div class="side-card status-card">
+          <span class="status-dot"></span><div><strong>Reportes abiertos</strong><p>Consulta si tu problema ya ha sido reportado.</p></div><a class="tracker-issues" target="_blank" rel="noreferrer" aria-label="Abrir reportes">→</a>
+        </div>
+        <div class="side-card tiny-card"><span>◈</span><p>Tu borrador se guarda automáticamente en este dispositivo.</p></div>
+      </aside>
+    </div>
+
+    <footer class="shell">
+      <div class="brand footer-brand"><span class="brand-mark"><span></span></span><span><strong>Twoo</strong>Utils</span></div>
+      <p>Hecho con mimo para la comunidad de Minecraft.</p>
+      <a id="tracker-home" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </footer>
+  </main>
+</body>
+</html>
